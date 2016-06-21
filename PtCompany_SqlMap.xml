@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="pub">
+
+  <resultMap id="pt_company_Map" class="org.hnslicom.mp.weixin.pojo.pub.model.tp.PtCompanyBean" >
+	  <result property="subComId" column="SUB_COM_ID" nullValue="" />
+	  <result property="subComName" column="SUB_COM_NAME" nullValue="" />
+	  <result property="vid" column="V_ID" nullValue="" />
+	  <result property="comAddr" column="COM_ADDR" nullValue="" />
+	  <result property="comPhone" column="COM_PHONE" nullValue="" />
+	  <result property="remark" column="REMARK" nullValue="" />
+	  <result property="comId" column="COM_ID" nullValue="" />
+	  <result property="comName" column="COM_NAME" nullValue="" />
+  </resultMap>
+  	
+  <resultMap id="pt_company_MapWithTranslation" class="org.hnslicom.mp.weixin.pojo.pub.model.tp.PtCompanyBean" >
+  	<result property="subComId" column="sub_com_id" nullValue="" /> 
+  	<result property="subComName" column="sub_com_name" nullValue="" /> 
+  	<result property="vid" column="v_id" nullValue="" /> 
+  	<result property="comAddr" column="com_addr" nullValue="" /> 
+  	<result property="comPhone" column="com_phone" nullValue="" /> 
+  	<result property="remark" column="remark" nullValue="" /> 
+  	<result property="comId" column="com_id" nullValue="" /> 
+  	<result property="comName" column="com_name" nullValue="" /> 
+  </resultMap>
+
+  <select id="pt_company_selectWithTranslation" resultMap="pt_company_MapWithTranslation" > 
+   SELECT 
+   <isPropertyAvailable property="extraHint"><isNotEmpty property="extraHint"> 
+    /*+ $extraHint$ */
+   </isNotEmpty></isPropertyAvailable>
+      sub_com_id ,
+      sub_com_name ,
+      v_id ,
+      com_addr ,
+      com_phone ,
+      remark ,
+      com_id ,
+      com_name
+   FROM pt_company A
+   <dynamic prepend="WHERE">    
+      <isPropertyAvailable property="subComId" ><isNotEmpty  prepend="AND" property="subComId"> 
+        ( sub_com_id = #subComId:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="subComIdLikeRange" ><isNotEmpty  prepend="AND" property="subComIdLikeRange"> 
+        ( sub_com_id LIKE #subComIdLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="subComName" ><isNotEmpty  prepend="AND" property="subComName"> 
+        ( sub_com_name = #subComName:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="subComNameLikeRange" ><isNotEmpty  prepend="AND" property="subComNameLikeRange"> 
+        ( sub_com_name LIKE #subComNameLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="vid" ><isNotEmpty  prepend="AND" property="vid"> 
+        ( v_id = #vid:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vidLikeRange" ><isNotEmpty  prepend="AND" property="vidLikeRange"> 
+        ( v_id LIKE #vidLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="comAddr" ><isNotEmpty  prepend="AND" property="comAddr"> 
+        ( com_addr = #comAddr:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="comAddrLikeRange" ><isNotEmpty  prepend="AND" property="comAddrLikeRange"> 
+        ( com_addr LIKE #comAddrLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="comPhone" ><isNotEmpty  prepend="AND" property="comPhone"> 
+        ( com_phone = #comPhone:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="comPhoneLikeRange" ><isNotEmpty  prepend="AND" property="comPhoneLikeRange"> 
+        ( com_phone LIKE #comPhoneLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="remark" ><isNotEmpty  prepend="AND" property="remark"> 
+        ( remark = #remark:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="remarkLikeRange" ><isNotEmpty  prepend="AND" property="remarkLikeRange"> 
+        ( remark LIKE #remarkLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="comId" ><isNotEmpty  prepend="AND" property="comId"> 
+        ( com_id = #comId:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="comIdLikeRange" ><isNotEmpty  prepend="AND" property="comIdLikeRange"> 
+        ( com_id LIKE #comIdLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="comName" ><isNotEmpty  prepend="AND" property="comName"> 
+        ( com_name = #comName:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="comNameLikeRange" ><isNotEmpty  prepend="AND" property="comNameLikeRange"> 
+        ( com_name LIKE #comNameLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+    <isPropertyAvailable property="rownum" ><isGreaterThan compareValue="0"  prepend="AND" property="rownum"> 
+       <![CDATA[  ( ROWNUM <= #rownum#)     ]]> 
+    </isGreaterThan></isPropertyAvailable> 
+    <isPropertyAvailable property="extraCondition" ><isNotEmpty  prepend="AND" property="extraCondition"> 
+        ( $extraCondition$ )
+     </isNotEmpty></isPropertyAvailable> 
+   </dynamic> 
+   <isPropertyAvailable property="extraOrderColumns" ><isNotEmpty property="extraOrderColumns"> 
+        ORDER BY $extraOrderColumns$
+   </isNotEmpty></isPropertyAvailable>
+   <isPropertyAvailable property="forUpdateFlag" >
+    <isEqual compareValue="1"  property="forUpdateFlag">
+       FOR UPDATE NOWAIT
+    </isEqual>
+   </isPropertyAvailable>    
+  </select>  
+  
+
+
+  <select id="pt_company_select" resultMap="pt_company_Map" > 
+   SELECT 
+   <isPropertyAvailable property="extraHint"><isNotEmpty property="extraHint"> 
+    /*+ $extraHint$ */
+   </isNotEmpty></isPropertyAvailable>
+   *
+   FROM pt_company A
+   <dynamic prepend="WHERE"> 
+      <isPropertyAvailable property="subComId" ><isNotEmpty  prepend="AND" property="subComId"> 
+        ( sub_com_id = #subComId:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="subComIdLikeRange" ><isNotEmpty  prepend="AND" property="subComIdLikeRange"> 
+        ( sub_com_id LIKE #subComIdLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="subComName" ><isNotEmpty  prepend="AND" property="subComName"> 
+        ( sub_com_name = #subComName:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="subComNameLikeRange" ><isNotEmpty  prepend="AND" property="subComNameLikeRange"> 
+        ( sub_com_name LIKE #subComNameLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="vid" ><isNotEmpty  prepend="AND" property="vid"> 
+        ( v_id = #vid:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vidLikeRange" ><isNotEmpty  prepend="AND" property="vidLikeRange"> 
+        ( v_id LIKE #vidLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="comAddr" ><isNotEmpty  prepend="AND" property="comAddr"> 
+        ( com_addr = #comAddr:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="comAddrLikeRange" ><isNotEmpty  prepend="AND" property="comAddrLikeRange"> 
+        ( com_addr LIKE #comAddrLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="comPhone" ><isNotEmpty  prepend="AND" property="comPhone"> 
+        ( com_phone = #comPhone:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="comPhoneLikeRange" ><isNotEmpty  prepend="AND" property="comPhoneLikeRange"> 
+        ( com_phone LIKE #comPhoneLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="remark" ><isNotEmpty  prepend="AND" property="remark"> 
+        ( remark = #remark:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="remarkLikeRange" ><isNotEmpty  prepend="AND" property="remarkLikeRange"> 
+        ( remark LIKE #remarkLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="comId" ><isNotEmpty  prepend="AND" property="comId"> 
+        ( com_id = #comId:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="comIdLikeRange" ><isNotEmpty  prepend="AND" property="comIdLikeRange"> 
+        ( com_id LIKE #comIdLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="comName" ><isNotEmpty  prepend="AND" property="comName"> 
+        ( com_name = #comName:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="comNameLikeRange" ><isNotEmpty  prepend="AND" property="comNameLikeRange"> 
+        ( com_name LIKE #comNameLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+    <isPropertyAvailable property="rownum" ><isGreaterThan compareValue="0"  prepend="AND" property="rownum"> 
+       <![CDATA[  ( ROWNUM <= #rownum#)     ]]> 
+    </isGreaterThan></isPropertyAvailable> 
+    <isPropertyAvailable property="extraCondition" ><isNotEmpty  prepend="AND" property="extraCondition"> 
+        ( $extraCondition$ )
+     </isNotEmpty></isPropertyAvailable> 
+   </dynamic> 
+   <isPropertyAvailable property="extraOrderColumns" ><isNotEmpty property="extraOrderColumns"> 
+        ORDER BY $extraOrderColumns$
+   </isNotEmpty></isPropertyAvailable>
+   <isPropertyAvailable property="forUpdateFlag" >
+    <isEqual compareValue="1"  property="forUpdateFlag">
+       FOR UPDATE NOWAIT
+    </isEqual>
+   </isPropertyAvailable>    
+  </select>  
+
+  <select id="pt_company_selectByKey" resultMap="pt_company_Map" > 
+   SELECT * FROM pt_company 
+   WHERE sub_com_id=#subComId:VARCHAR#
+   <isPropertyAvailable property="forUpdateFlag" >
+    <isEqual compareValue="1"  property="forUpdateFlag">
+       FOR UPDATE NOWAIT
+    </isEqual>
+   </isPropertyAvailable>      
+  </select>  
+  
+   <update id="pt_company_update"> 
+    UPDATE pt_company 
+    <dynamic prepend="SET"> 
+      <isPropertyAvailable property="subComName" >
+        <isNotNull prepend="," property="subComName" >
+         sub_com_name = #subComName:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="vid" >
+        <isNotNull prepend="," property="vid" >
+         v_id = #vid:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="comAddr" >
+        <isNotNull prepend="," property="comAddr" >
+         com_addr = #comAddr:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="comPhone" >
+        <isNotNull prepend="," property="comPhone" >
+         com_phone = #comPhone:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="remark" >
+        <isNotNull prepend="," property="remark" >
+         remark = #remark:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="comId" >
+        <isNotNull prepend="," property="comId" >
+         com_id = #comId:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="comName" >
+        <isNotNull prepend="," property="comName" >
+         com_name = #comName:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+    </dynamic>    
+    WHERE sub_com_id=#subComId:VARCHAR#
+   </update>  
+ 
+   <delete id="pt_company_delete"> 
+    delete from pt_company 
+    WHERE sub_com_id=#subComId:VARCHAR#
+   </delete>  
+
+   <delete id="pt_company_deleteBy"> 
+    delete from pt_company WHERE
+   <dynamic prepend=" ">    
+      <isPropertyAvailable property="subComId" ><isNotEmpty  prepend="AND" property="subComId"> 
+        ( sub_com_id = #subComId:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="subComIdLikeRange" ><isNotEmpty  prepend="AND" property="subComIdLikeRange"> 
+        ( sub_com_id LIKE #subComIdLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="subComName" ><isNotEmpty  prepend="AND" property="subComName"> 
+        ( sub_com_name = #subComName:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="subComNameLikeRange" ><isNotEmpty  prepend="AND" property="subComNameLikeRange"> 
+        ( sub_com_name LIKE #subComNameLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="vid" ><isNotEmpty  prepend="AND" property="vid"> 
+        ( v_id = #vid:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vidLikeRange" ><isNotEmpty  prepend="AND" property="vidLikeRange"> 
+        ( v_id LIKE #vidLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="comAddr" ><isNotEmpty  prepend="AND" property="comAddr"> 
+        ( com_addr = #comAddr:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="comAddrLikeRange" ><isNotEmpty  prepend="AND" property="comAddrLikeRange"> 
+        ( com_addr LIKE #comAddrLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="comPhone" ><isNotEmpty  prepend="AND" property="comPhone"> 
+        ( com_phone = #comPhone:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="comPhoneLikeRange" ><isNotEmpty  prepend="AND" property="comPhoneLikeRange"> 
+        ( com_phone LIKE #comPhoneLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="remark" ><isNotEmpty  prepend="AND" property="remark"> 
+        ( remark = #remark:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="remarkLikeRange" ><isNotEmpty  prepend="AND" property="remarkLikeRange"> 
+        ( remark LIKE #remarkLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="comId" ><isNotEmpty  prepend="AND" property="comId"> 
+        ( com_id = #comId:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="comIdLikeRange" ><isNotEmpty  prepend="AND" property="comIdLikeRange"> 
+        ( com_id LIKE #comIdLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="comName" ><isNotEmpty  prepend="AND" property="comName"> 
+        ( com_name = #comName:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="comNameLikeRange" ><isNotEmpty  prepend="AND" property="comNameLikeRange"> 
+        ( com_name LIKE #comNameLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+    <isPropertyAvailable property="rownum" ><isGreaterThan compareValue="0"  prepend="AND" property="rownum"> 
+       <![CDATA[  ( ROWNUM <= #rownum#)     ]]> 
+    </isGreaterThan></isPropertyAvailable> 
+    <isPropertyAvailable property="extraCondition" ><isNotEmpty  prepend="AND" property="extraCondition"> 
+        ( $extraCondition$ )
+     </isNotEmpty></isPropertyAvailable> 
+   </dynamic>     
+   </delete>  
+
+   <insert id="pt_company_insert">
+    INSERT INTO pt_company
+    (
+      sub_com_id ,
+      sub_com_name ,
+      v_id ,
+      com_addr ,
+      com_phone ,
+      remark ,
+      com_id ,
+      com_name
+    ) 
+    VALUES
+    (
+      #subComId:VARCHAR# ,   
+      #subComName:VARCHAR# ,   
+      #vid:VARCHAR# ,   
+      #comAddr:VARCHAR# ,   
+      #comPhone:VARCHAR# ,   
+      #remark:VARCHAR# ,   
+      #comId:VARCHAR# ,   
+      #comName:VARCHAR#    
+    ) 
+   </insert>
+
+</sqlMap>	
+

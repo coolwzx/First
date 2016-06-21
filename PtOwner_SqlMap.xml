@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="pub">
+
+  <resultMap id="pt_owner_Map" class="org.hnslicom.mp.weixin.pojo.pub.model.tp.PtOwnerBean" >
+	  <result property="ownerId" column="OWNER_ID" nullValue="" />
+	  <result property="ownerName" column="OWNER_NAME" nullValue="" />
+	  <result property="ownerType" column="OWNER_TYPE" nullValue="" />
+	  <result property="vid" column="V_ID" nullValue="" />
+	  <result property="hcode" column="H_CODE" nullValue="" />
+	  <result property="ownerPic" column="OWNER_PIC" nullValue="" />
+	  <result property="ownerOpenid" column="OWNER_OPENID" nullValue="" />
+	  <result property="ownerWximgUrl" column="OWNER_WXIMG_URL" nullValue="" />
+	  <result property="isEnable" column="IS_ENABLE" />
+	  <result property="pid" column="P_ID" nullValue="" />
+	  <result property="ownerPhone" column="OWNER_PHONE" nullValue="" />
+	  <result property="ownerCarNo" column="OWNER_CAR_NO" nullValue="" />
+	  <result property="ownerSex" column="OWNER_SEX" nullValue="" />
+	  <result property="ownerDate" column="OWNER_DATE" />
+	  <result property="ownerPosition" column="OWNER_POSITION" nullValue="" />
+	  <result property="ownerMail" column="OWNER_MAIL" nullValue="" />
+	  <result property="ownerQq" column="OWNER_QQ" nullValue="" />
+  </resultMap>
+  	
+  <resultMap id="pt_owner_MapWithTranslation" class="org.hnslicom.mp.weixin.pojo.pub.model.tp.PtOwnerBean" >
+  	<result property="ownerId" column="owner_id" nullValue="" /> 
+  	<result property="ownerName" column="owner_name" nullValue="" /> 
+  	<result property="ownerType" column="owner_type" nullValue="" /> 
+  	<result property="vid" column="v_id" nullValue="" /> 
+  	<result property="hcode" column="h_code" nullValue="" /> 
+  	<result property="ownerPic" column="owner_pic" nullValue="" /> 
+  	<result property="ownerOpenid" column="owner_openid" nullValue="" /> 
+  	<result property="ownerWximgUrl" column="owner_wximg_url" nullValue="" /> 
+  	<result property="isEnable" column="is_enable" /> 
+  	<result property="pid" column="p_id" nullValue="" /> 
+  	<result property="ownerPhone" column="owner_phone" nullValue="" /> 
+  	<result property="ownerCarNo" column="owner_car_no" nullValue="" /> 
+  	<result property="ownerSex" column="owner_sex" nullValue="" /> 
+  	<result property="ownerDate" column="owner_date"  /> 
+  	<result property="ownerPosition" column="owner_position" nullValue="" /> 
+  	<result property="ownerMail" column="owner_mail" nullValue="" /> 
+  	<result property="ownerQq" column="owner_qq" nullValue="" /> 
+  </resultMap>
+
+  <select id="pt_owner_selectWithTranslation" resultMap="pt_owner_MapWithTranslation" > 
+   SELECT 
+   <isPropertyAvailable property="extraHint"><isNotEmpty property="extraHint"> 
+    /*+ $extraHint$ */
+   </isNotEmpty></isPropertyAvailable>
+      owner_id ,
+      owner_name ,
+      owner_type ,
+      v_id ,
+      h_code ,
+      owner_pic ,
+      owner_openid ,
+      owner_wximg_url ,
+      is_enable ,
+      p_id ,
+      owner_phone ,
+      owner_car_no ,
+      owner_sex ,
+      owner_date ,
+      owner_position ,
+      owner_mail ,
+      owner_qq
+   FROM pt_owner A
+   <dynamic prepend="WHERE">    
+      <isPropertyAvailable property="ownerId" ><isNotEmpty  prepend="AND" property="ownerId"> 
+        ( owner_id = #ownerId:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerIdLikeRange" ><isNotEmpty  prepend="AND" property="ownerIdLikeRange"> 
+        ( owner_id LIKE #ownerIdLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerName" ><isNotEmpty  prepend="AND" property="ownerName"> 
+        ( owner_name = #ownerName:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerNameLikeRange" ><isNotEmpty  prepend="AND" property="ownerNameLikeRange"> 
+        ( owner_name LIKE #ownerNameLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerType" ><isNotEmpty  prepend="AND" property="ownerType"> 
+        ( owner_type = #ownerType:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerTypeLikeRange" ><isNotEmpty  prepend="AND" property="ownerTypeLikeRange"> 
+        ( owner_type LIKE #ownerTypeLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="vid" ><isNotEmpty  prepend="AND" property="vid"> 
+        ( v_id = #vid:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vidLikeRange" ><isNotEmpty  prepend="AND" property="vidLikeRange"> 
+        ( v_id LIKE #vidLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="hcode" ><isNotEmpty  prepend="AND" property="hcode"> 
+        ( h_code = #hcode:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="hcodeLikeRange" ><isNotEmpty  prepend="AND" property="hcodeLikeRange"> 
+        ( h_code LIKE #hcodeLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerPic" ><isNotEmpty  prepend="AND" property="ownerPic"> 
+        ( owner_pic = #ownerPic:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerPicLikeRange" ><isNotEmpty  prepend="AND" property="ownerPicLikeRange"> 
+        ( owner_pic LIKE #ownerPicLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerOpenid" ><isNotEmpty  prepend="AND" property="ownerOpenid"> 
+        ( owner_openid = #ownerOpenid:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerOpenidLikeRange" ><isNotEmpty  prepend="AND" property="ownerOpenidLikeRange"> 
+        ( owner_openid LIKE #ownerOpenidLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerWximgUrl" ><isNotEmpty  prepend="AND" property="ownerWximgUrl"> 
+        ( owner_wximg_url = #ownerWximgUrl:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerWximgUrlLikeRange" ><isNotEmpty  prepend="AND" property="ownerWximgUrlLikeRange"> 
+        ( owner_wximg_url LIKE #ownerWximgUrlLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="isEnable" ><isNotNull prepend="AND" property="isEnable">
+       ( is_enable = #isEnable:NUMERIC#)
+      </isNotNull></isPropertyAvailable>
+      <isPropertyAvailable property="pid" ><isNotEmpty  prepend="AND" property="pid"> 
+        ( p_id = #pid:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="pidLikeRange" ><isNotEmpty  prepend="AND" property="pidLikeRange"> 
+        ( p_id LIKE #pidLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerPhone" ><isNotEmpty  prepend="AND" property="ownerPhone"> 
+        ( owner_phone = #ownerPhone:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerPhoneLikeRange" ><isNotEmpty  prepend="AND" property="ownerPhoneLikeRange"> 
+        ( owner_phone LIKE #ownerPhoneLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerCarNo" ><isNotEmpty  prepend="AND" property="ownerCarNo"> 
+        ( owner_car_no = #ownerCarNo:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerCarNoLikeRange" ><isNotEmpty  prepend="AND" property="ownerCarNoLikeRange"> 
+        ( owner_car_no LIKE #ownerCarNoLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerSex" ><isNotEmpty  prepend="AND" property="ownerSex"> 
+        ( owner_sex = #ownerSex:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerSexLikeRange" ><isNotEmpty  prepend="AND" property="ownerSexLikeRange"> 
+        ( owner_sex LIKE #ownerSexLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+     <isPropertyAvailable property="ownerDate" ><isNotNull prepend="AND" property="ownerDate">
+       <![CDATA[ 
+        (owner_date>=trunc(cast(#ownerDate:TIMESTAMP# as date),'DD') AND owner_date<trunc(cast(#ownerDate:TIMESTAMP# as date)+1,'DD'))
+       ]]> 
+     </isNotNull></isPropertyAvailable>   
+     <isPropertyAvailable property="ownerDateRange1" ><isNotNull prepend="AND" property="ownerDateRange1">
+       <![CDATA[ (owner_date>=#ownerDateRange1:TIMESTAMP#) ]]> 
+     </isNotNull></isPropertyAvailable>
+     <isPropertyAvailable property="ownerDateRange2" ><isNotNull prepend="AND" property="ownerDateRange2">
+       <![CDATA[ (owner_date<=#ownerDateRange2:TIMESTAMP#) ]]> 
+     </isNotNull></isPropertyAvailable>
+      <isPropertyAvailable property="ownerPosition" ><isNotEmpty  prepend="AND" property="ownerPosition"> 
+        ( owner_position = #ownerPosition:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerPositionLikeRange" ><isNotEmpty  prepend="AND" property="ownerPositionLikeRange"> 
+        ( owner_position LIKE #ownerPositionLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerMail" ><isNotEmpty  prepend="AND" property="ownerMail"> 
+        ( owner_mail = #ownerMail:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerMailLikeRange" ><isNotEmpty  prepend="AND" property="ownerMailLikeRange"> 
+        ( owner_mail LIKE #ownerMailLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerQq" ><isNotEmpty  prepend="AND" property="ownerQq"> 
+        ( owner_qq = #ownerQq:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerQqLikeRange" ><isNotEmpty  prepend="AND" property="ownerQqLikeRange"> 
+        ( owner_qq LIKE #ownerQqLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+    <isPropertyAvailable property="rownum" ><isGreaterThan compareValue="0"  prepend="AND" property="rownum"> 
+       <![CDATA[  ( ROWNUM <= #rownum#)     ]]> 
+    </isGreaterThan></isPropertyAvailable> 
+    <isPropertyAvailable property="extraCondition" ><isNotEmpty  prepend="AND" property="extraCondition"> 
+        ( $extraCondition$ )
+     </isNotEmpty></isPropertyAvailable> 
+   </dynamic> 
+   <isPropertyAvailable property="extraOrderColumns" ><isNotEmpty property="extraOrderColumns"> 
+        ORDER BY $extraOrderColumns$
+   </isNotEmpty></isPropertyAvailable>
+   <isPropertyAvailable property="forUpdateFlag" >
+    <isEqual compareValue="1"  property="forUpdateFlag">
+       FOR UPDATE NOWAIT
+    </isEqual>
+   </isPropertyAvailable>    
+  </select>  
+  
+
+
+  <select id="pt_owner_select" resultMap="pt_owner_Map" > 
+   SELECT 
+   <isPropertyAvailable property="extraHint"><isNotEmpty property="extraHint"> 
+    /*+ $extraHint$ */
+   </isNotEmpty></isPropertyAvailable>
+   *
+   FROM pt_owner A
+   <dynamic prepend="WHERE"> 
+      <isPropertyAvailable property="ownerId" ><isNotEmpty  prepend="AND" property="ownerId"> 
+        ( owner_id = #ownerId:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerIdLikeRange" ><isNotEmpty  prepend="AND" property="ownerIdLikeRange"> 
+        ( owner_id LIKE #ownerIdLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerName" ><isNotEmpty  prepend="AND" property="ownerName"> 
+        ( owner_name = #ownerName:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerNameLikeRange" ><isNotEmpty  prepend="AND" property="ownerNameLikeRange"> 
+        ( owner_name LIKE #ownerNameLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerType" ><isNotEmpty  prepend="AND" property="ownerType"> 
+        ( owner_type = #ownerType:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerTypeLikeRange" ><isNotEmpty  prepend="AND" property="ownerTypeLikeRange"> 
+        ( owner_type LIKE #ownerTypeLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="vid" ><isNotEmpty  prepend="AND" property="vid"> 
+        ( v_id = #vid:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vidLikeRange" ><isNotEmpty  prepend="AND" property="vidLikeRange"> 
+        ( v_id LIKE #vidLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="hcode" ><isNotEmpty  prepend="AND" property="hcode"> 
+        ( h_code = #hcode:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="hcodeLikeRange" ><isNotEmpty  prepend="AND" property="hcodeLikeRange"> 
+        ( h_code LIKE #hcodeLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerPic" ><isNotEmpty  prepend="AND" property="ownerPic"> 
+        ( owner_pic = #ownerPic:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerPicLikeRange" ><isNotEmpty  prepend="AND" property="ownerPicLikeRange"> 
+        ( owner_pic LIKE #ownerPicLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerOpenid" ><isNotEmpty  prepend="AND" property="ownerOpenid"> 
+        ( owner_openid = #ownerOpenid:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerOpenidLikeRange" ><isNotEmpty  prepend="AND" property="ownerOpenidLikeRange"> 
+        ( owner_openid LIKE #ownerOpenidLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerWximgUrl" ><isNotEmpty  prepend="AND" property="ownerWximgUrl"> 
+        ( owner_wximg_url = #ownerWximgUrl:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerWximgUrlLikeRange" ><isNotEmpty  prepend="AND" property="ownerWximgUrlLikeRange"> 
+        ( owner_wximg_url LIKE #ownerWximgUrlLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="isEnable" ><isNotNull prepend="AND" property="isEnable">
+       ( is_enable = #isEnable:NUMERIC#)
+      </isNotNull></isPropertyAvailable>
+      <isPropertyAvailable property="pid" ><isNotEmpty  prepend="AND" property="pid"> 
+        ( p_id = #pid:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="pidLikeRange" ><isNotEmpty  prepend="AND" property="pidLikeRange"> 
+        ( p_id LIKE #pidLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerPhone" ><isNotEmpty  prepend="AND" property="ownerPhone"> 
+        ( owner_phone = #ownerPhone:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerPhoneLikeRange" ><isNotEmpty  prepend="AND" property="ownerPhoneLikeRange"> 
+        ( owner_phone LIKE #ownerPhoneLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerCarNo" ><isNotEmpty  prepend="AND" property="ownerCarNo"> 
+        ( owner_car_no = #ownerCarNo:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerCarNoLikeRange" ><isNotEmpty  prepend="AND" property="ownerCarNoLikeRange"> 
+        ( owner_car_no LIKE #ownerCarNoLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerSex" ><isNotEmpty  prepend="AND" property="ownerSex"> 
+        ( owner_sex = #ownerSex:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerSexLikeRange" ><isNotEmpty  prepend="AND" property="ownerSexLikeRange"> 
+        ( owner_sex LIKE #ownerSexLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+     <isPropertyAvailable property="ownerDate" ><isNotNull prepend="AND" property="ownerDate">
+       <![CDATA[ 
+        (owner_date>=trunc(cast(#ownerDate:TIMESTAMP# as date),'DD') AND owner_date<trunc(cast(#ownerDate:TIMESTAMP# as date)+1,'DD'))
+       ]]> 
+     </isNotNull></isPropertyAvailable>   
+     <isPropertyAvailable property="ownerDateRange1" ><isNotNull prepend="AND" property="ownerDateRange1">
+       <![CDATA[ (owner_date>=#ownerDateRange1:TIMESTAMP#) ]]> 
+     </isNotNull></isPropertyAvailable>
+     <isPropertyAvailable property="ownerDateRange2" ><isNotNull prepend="AND" property="ownerDateRange2">
+       <![CDATA[ (owner_date<=#ownerDateRange2:TIMESTAMP#) ]]> 
+     </isNotNull></isPropertyAvailable>
+      <isPropertyAvailable property="ownerPosition" ><isNotEmpty  prepend="AND" property="ownerPosition"> 
+        ( owner_position = #ownerPosition:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerPositionLikeRange" ><isNotEmpty  prepend="AND" property="ownerPositionLikeRange"> 
+        ( owner_position LIKE #ownerPositionLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerMail" ><isNotEmpty  prepend="AND" property="ownerMail"> 
+        ( owner_mail = #ownerMail:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerMailLikeRange" ><isNotEmpty  prepend="AND" property="ownerMailLikeRange"> 
+        ( owner_mail LIKE #ownerMailLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerQq" ><isNotEmpty  prepend="AND" property="ownerQq"> 
+        ( owner_qq = #ownerQq:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerQqLikeRange" ><isNotEmpty  prepend="AND" property="ownerQqLikeRange"> 
+        ( owner_qq LIKE #ownerQqLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+    <isPropertyAvailable property="rownum" ><isGreaterThan compareValue="0"  prepend="AND" property="rownum"> 
+       <![CDATA[  ( ROWNUM <= #rownum#)     ]]> 
+    </isGreaterThan></isPropertyAvailable> 
+    <isPropertyAvailable property="extraCondition" ><isNotEmpty  prepend="AND" property="extraCondition"> 
+        ( $extraCondition$ )
+     </isNotEmpty></isPropertyAvailable> 
+   </dynamic> 
+   <isPropertyAvailable property="extraOrderColumns" ><isNotEmpty property="extraOrderColumns"> 
+        ORDER BY $extraOrderColumns$
+   </isNotEmpty></isPropertyAvailable>
+   <isPropertyAvailable property="forUpdateFlag" >
+    <isEqual compareValue="1"  property="forUpdateFlag">
+       FOR UPDATE NOWAIT
+    </isEqual>
+   </isPropertyAvailable>    
+  </select>  
+
+  <select id="pt_owner_selectByKey" resultMap="pt_owner_Map" > 
+   SELECT * FROM pt_owner 
+   WHERE owner_id=#ownerId:VARCHAR# AND owner_name=#ownerName:VARCHAR# AND owner_phone=#ownerPhone:VARCHAR#
+   <isPropertyAvailable property="forUpdateFlag" >
+    <isEqual compareValue="1"  property="forUpdateFlag">
+       FOR UPDATE NOWAIT
+    </isEqual>
+   </isPropertyAvailable>      
+  </select>  
+  
+   <update id="pt_owner_update"> 
+    UPDATE pt_owner 
+    <dynamic prepend="SET"> 
+      <isPropertyAvailable property="ownerType" >
+        <isNotNull prepend="," property="ownerType" >
+         owner_type = #ownerType:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="vid" >
+        <isNotNull prepend="," property="vid" >
+         v_id = #vid:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="hcode" >
+        <isNotNull prepend="," property="hcode" >
+         h_code = #hcode:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="ownerPic" >
+        <isNotNull prepend="," property="ownerPic" >
+         owner_pic = #ownerPic:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="ownerOpenid" >
+        <isNotNull prepend="," property="ownerOpenid" >
+         owner_openid = #ownerOpenid:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="ownerWximgUrl" >
+        <isNotNull prepend="," property="ownerWximgUrl" >
+         owner_wximg_url = #ownerWximgUrl:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="isEnable" >
+        <isNotNull prepend="," property="isEnable" >
+         is_enable = #isEnable:NUMERIC#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="pid" >
+        <isNotNull prepend="," property="pid" >
+         p_id = #pid:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="ownerCarNo" >
+        <isNotNull prepend="," property="ownerCarNo" >
+         owner_car_no = #ownerCarNo:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="ownerSex" >
+        <isNotNull prepend="," property="ownerSex" >
+         owner_sex = #ownerSex:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="ownerDate" >
+        <isNotNull prepend="," property="ownerDate" >
+         owner_date = #ownerDate:TIMESTAMP#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="ownerPosition" >
+        <isNotNull prepend="," property="ownerPosition" >
+         owner_position = #ownerPosition:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="ownerMail" >
+        <isNotNull prepend="," property="ownerMail" >
+         owner_mail = #ownerMail:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="ownerQq" >
+        <isNotNull prepend="," property="ownerQq" >
+         owner_qq = #ownerQq:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+    </dynamic>    
+    WHERE owner_id=#ownerId:VARCHAR# AND owner_name=#ownerName:VARCHAR# AND owner_phone=#ownerPhone:VARCHAR#
+   </update>  
+ 
+   <delete id="pt_owner_delete"> 
+    delete from pt_owner 
+    WHERE owner_id=#ownerId:VARCHAR# AND owner_name=#ownerName:VARCHAR# AND owner_phone=#ownerPhone:VARCHAR#
+   </delete>  
+
+   <delete id="pt_owner_deleteBy"> 
+    delete from pt_owner WHERE
+   <dynamic prepend=" ">    
+      <isPropertyAvailable property="ownerId" ><isNotEmpty  prepend="AND" property="ownerId"> 
+        ( owner_id = #ownerId:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerIdLikeRange" ><isNotEmpty  prepend="AND" property="ownerIdLikeRange"> 
+        ( owner_id LIKE #ownerIdLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerName" ><isNotEmpty  prepend="AND" property="ownerName"> 
+        ( owner_name = #ownerName:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerNameLikeRange" ><isNotEmpty  prepend="AND" property="ownerNameLikeRange"> 
+        ( owner_name LIKE #ownerNameLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerType" ><isNotEmpty  prepend="AND" property="ownerType"> 
+        ( owner_type = #ownerType:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerTypeLikeRange" ><isNotEmpty  prepend="AND" property="ownerTypeLikeRange"> 
+        ( owner_type LIKE #ownerTypeLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="vid" ><isNotEmpty  prepend="AND" property="vid"> 
+        ( v_id = #vid:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vidLikeRange" ><isNotEmpty  prepend="AND" property="vidLikeRange"> 
+        ( v_id LIKE #vidLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="hcode" ><isNotEmpty  prepend="AND" property="hcode"> 
+        ( h_code = #hcode:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="hcodeLikeRange" ><isNotEmpty  prepend="AND" property="hcodeLikeRange"> 
+        ( h_code LIKE #hcodeLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerPic" ><isNotEmpty  prepend="AND" property="ownerPic"> 
+        ( owner_pic = #ownerPic:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerPicLikeRange" ><isNotEmpty  prepend="AND" property="ownerPicLikeRange"> 
+        ( owner_pic LIKE #ownerPicLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerOpenid" ><isNotEmpty  prepend="AND" property="ownerOpenid"> 
+        ( owner_openid = #ownerOpenid:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerOpenidLikeRange" ><isNotEmpty  prepend="AND" property="ownerOpenidLikeRange"> 
+        ( owner_openid LIKE #ownerOpenidLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerWximgUrl" ><isNotEmpty  prepend="AND" property="ownerWximgUrl"> 
+        ( owner_wximg_url = #ownerWximgUrl:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerWximgUrlLikeRange" ><isNotEmpty  prepend="AND" property="ownerWximgUrlLikeRange"> 
+        ( owner_wximg_url LIKE #ownerWximgUrlLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="isEnable" ><isNotNull prepend="AND" property="isEnable">
+       ( is_enable = #isEnable:NUMERIC#)
+      </isNotNull></isPropertyAvailable>
+      <isPropertyAvailable property="pid" ><isNotEmpty  prepend="AND" property="pid"> 
+        ( p_id = #pid:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="pidLikeRange" ><isNotEmpty  prepend="AND" property="pidLikeRange"> 
+        ( p_id LIKE #pidLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerPhone" ><isNotEmpty  prepend="AND" property="ownerPhone"> 
+        ( owner_phone = #ownerPhone:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerPhoneLikeRange" ><isNotEmpty  prepend="AND" property="ownerPhoneLikeRange"> 
+        ( owner_phone LIKE #ownerPhoneLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerCarNo" ><isNotEmpty  prepend="AND" property="ownerCarNo"> 
+        ( owner_car_no = #ownerCarNo:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerCarNoLikeRange" ><isNotEmpty  prepend="AND" property="ownerCarNoLikeRange"> 
+        ( owner_car_no LIKE #ownerCarNoLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerSex" ><isNotEmpty  prepend="AND" property="ownerSex"> 
+        ( owner_sex = #ownerSex:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerSexLikeRange" ><isNotEmpty  prepend="AND" property="ownerSexLikeRange"> 
+        ( owner_sex LIKE #ownerSexLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+     <isPropertyAvailable property="ownerDate" ><isNotNull prepend="AND" property="ownerDate">
+       <![CDATA[ 
+        (owner_date>=trunc(cast(#ownerDate:TIMESTAMP# as date),'DD') AND owner_date<trunc(cast(#ownerDate:TIMESTAMP# as date)+1,'DD'))
+       ]]> 
+     </isNotNull></isPropertyAvailable>   
+     <isPropertyAvailable property="ownerDateRange1" ><isNotNull prepend="AND" property="ownerDateRange1">
+       <![CDATA[ (owner_date>=#ownerDateRange1:TIMESTAMP#) ]]> 
+     </isNotNull></isPropertyAvailable>
+     <isPropertyAvailable property="ownerDateRange2" ><isNotNull prepend="AND" property="ownerDateRange2">
+       <![CDATA[ (owner_date<=#ownerDateRange2:TIMESTAMP#) ]]> 
+     </isNotNull></isPropertyAvailable>
+      <isPropertyAvailable property="ownerPosition" ><isNotEmpty  prepend="AND" property="ownerPosition"> 
+        ( owner_position = #ownerPosition:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerPositionLikeRange" ><isNotEmpty  prepend="AND" property="ownerPositionLikeRange"> 
+        ( owner_position LIKE #ownerPositionLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerMail" ><isNotEmpty  prepend="AND" property="ownerMail"> 
+        ( owner_mail = #ownerMail:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerMailLikeRange" ><isNotEmpty  prepend="AND" property="ownerMailLikeRange"> 
+        ( owner_mail LIKE #ownerMailLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerQq" ><isNotEmpty  prepend="AND" property="ownerQq"> 
+        ( owner_qq = #ownerQq:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerQqLikeRange" ><isNotEmpty  prepend="AND" property="ownerQqLikeRange"> 
+        ( owner_qq LIKE #ownerQqLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+    <isPropertyAvailable property="rownum" ><isGreaterThan compareValue="0"  prepend="AND" property="rownum"> 
+       <![CDATA[  ( ROWNUM <= #rownum#)     ]]> 
+    </isGreaterThan></isPropertyAvailable> 
+    <isPropertyAvailable property="extraCondition" ><isNotEmpty  prepend="AND" property="extraCondition"> 
+        ( $extraCondition$ )
+     </isNotEmpty></isPropertyAvailable> 
+   </dynamic>     
+   </delete>  
+
+   <insert id="pt_owner_insert">
+    INSERT INTO pt_owner
+    (
+      owner_id ,
+      owner_name ,
+      owner_type ,
+      v_id ,
+      h_code ,
+      owner_pic ,
+      owner_openid ,
+      owner_wximg_url ,
+      is_enable ,
+      p_id ,
+      owner_phone ,
+      owner_car_no ,
+      owner_sex ,
+      owner_date ,
+      owner_position ,
+      owner_mail ,
+      owner_qq
+    ) 
+    VALUES
+    (
+      #ownerId:VARCHAR# ,   
+      #ownerName:VARCHAR# ,   
+      #ownerType:VARCHAR# ,   
+      #vid:VARCHAR# ,   
+      #hcode:VARCHAR# ,   
+      #ownerPic:VARCHAR# ,   
+      #ownerOpenid:VARCHAR# ,   
+      #ownerWximgUrl:VARCHAR# ,   
+      #isEnable:NUMERIC# ,   
+      #pid:VARCHAR# ,   
+      #ownerPhone:VARCHAR# ,   
+      #ownerCarNo:VARCHAR# ,   
+      #ownerSex:VARCHAR# ,   
+      #ownerDate:TIMESTAMP# ,   
+      #ownerPosition:VARCHAR# ,   
+      #ownerMail:VARCHAR# ,   
+      #ownerQq:VARCHAR#    
+    ) 
+   </insert>
+
+</sqlMap>	
+

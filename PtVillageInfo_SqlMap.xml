@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="pub">
+
+  <resultMap id="pt_village_info_Map" class="org.hnslicom.mp.weixin.pojo.pub.model.tp.PtVillageInfoBean" >
+	  <result property="vid" column="V_ID" nullValue="" />
+	  <result property="vname" column="V_NAME" nullValue="" />
+	  <result property="vregionId" column="V_REGION_ID" nullValue="" />
+	  <result property="vlongitude" column="V_LONGITUDE" nullValue="" />
+	  <result property="vlatitude" column="V_LATITUDE" nullValue="" />
+	  <result property="vmeasure" column="V_MEASURE" nullValue="" />
+	  <result property="vcarNum" column="V_CAR_NUM" nullValue="" />
+	  <result property="vhouseTotal" column="V_HOUSE_TOTAL" nullValue="" />
+	  <result property="vimgUrl" column="V_IMG_URL" nullValue="" />
+	  <result property="remark" column="REMARK" nullValue="" />
+  </resultMap>
+  	
+  <resultMap id="pt_village_info_MapWithTranslation" class="org.hnslicom.mp.weixin.pojo.pub.model.tp.PtVillageInfoBean" >
+  	<result property="vid" column="v_id" nullValue="" /> 
+  	<result property="vname" column="v_name" nullValue="" /> 
+  	<result property="vregionId" column="v_region_id" nullValue="" /> 
+  	<result property="vlongitude" column="v_longitude" nullValue="" /> 
+  	<result property="vlatitude" column="v_latitude" nullValue="" /> 
+  	<result property="vmeasure" column="v_measure" nullValue="" /> 
+  	<result property="vcarNum" column="v_car_num" nullValue="" /> 
+  	<result property="vhouseTotal" column="v_house_total" nullValue="" /> 
+  	<result property="vimgUrl" column="v_img_url" nullValue="" /> 
+  	<result property="remark" column="remark" nullValue="" /> 
+  </resultMap>
+
+  <select id="pt_village_info_selectWithTranslation" resultMap="pt_village_info_MapWithTranslation" > 
+   SELECT 
+   <isPropertyAvailable property="extraHint"><isNotEmpty property="extraHint"> 
+    /*+ $extraHint$ */
+   </isNotEmpty></isPropertyAvailable>
+      v_id ,
+      v_name ,
+      v_region_id ,
+      v_longitude ,
+      v_latitude ,
+      v_measure ,
+      v_car_num ,
+      v_house_total ,
+      v_img_url ,
+      remark
+   FROM pt_village_info A
+   <dynamic prepend="WHERE">    
+      <isPropertyAvailable property="vid" ><isNotEmpty  prepend="AND" property="vid"> 
+        ( v_id = #vid:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vidLikeRange" ><isNotEmpty  prepend="AND" property="vidLikeRange"> 
+        ( v_id LIKE #vidLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="vname" ><isNotEmpty  prepend="AND" property="vname"> 
+        ( v_name = #vname:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vnameLikeRange" ><isNotEmpty  prepend="AND" property="vnameLikeRange"> 
+        ( v_name LIKE #vnameLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="vregionId" ><isNotEmpty  prepend="AND" property="vregionId"> 
+        ( v_region_id = #vregionId:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vregionIdLikeRange" ><isNotEmpty  prepend="AND" property="vregionIdLikeRange"> 
+        ( v_region_id LIKE #vregionIdLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="vlongitude" ><isNotEmpty  prepend="AND" property="vlongitude"> 
+        ( v_longitude = #vlongitude:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vlongitudeLikeRange" ><isNotEmpty  prepend="AND" property="vlongitudeLikeRange"> 
+        ( v_longitude LIKE #vlongitudeLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="vlatitude" ><isNotEmpty  prepend="AND" property="vlatitude"> 
+        ( v_latitude = #vlatitude:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vlatitudeLikeRange" ><isNotEmpty  prepend="AND" property="vlatitudeLikeRange"> 
+        ( v_latitude LIKE #vlatitudeLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="vmeasure" ><isNotEmpty  prepend="AND" property="vmeasure"> 
+        ( v_measure = #vmeasure:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vmeasureLikeRange" ><isNotEmpty  prepend="AND" property="vmeasureLikeRange"> 
+        ( v_measure LIKE #vmeasureLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="vcarNum" ><isNotEmpty  prepend="AND" property="vcarNum"> 
+        ( v_car_num = #vcarNum:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vcarNumLikeRange" ><isNotEmpty  prepend="AND" property="vcarNumLikeRange"> 
+        ( v_car_num LIKE #vcarNumLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="vhouseTotal" ><isNotEmpty  prepend="AND" property="vhouseTotal"> 
+        ( v_house_total = #vhouseTotal:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vhouseTotalLikeRange" ><isNotEmpty  prepend="AND" property="vhouseTotalLikeRange"> 
+        ( v_house_total LIKE #vhouseTotalLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="vimgUrl" ><isNotEmpty  prepend="AND" property="vimgUrl"> 
+        ( v_img_url = #vimgUrl:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vimgUrlLikeRange" ><isNotEmpty  prepend="AND" property="vimgUrlLikeRange"> 
+        ( v_img_url LIKE #vimgUrlLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="remark" ><isNotEmpty  prepend="AND" property="remark"> 
+        ( remark = #remark:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="remarkLikeRange" ><isNotEmpty  prepend="AND" property="remarkLikeRange"> 
+        ( remark LIKE #remarkLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+    <isPropertyAvailable property="rownum" ><isGreaterThan compareValue="0"  prepend="AND" property="rownum"> 
+       <![CDATA[  ( ROWNUM <= #rownum#)     ]]> 
+    </isGreaterThan></isPropertyAvailable> 
+    <isPropertyAvailable property="extraCondition" ><isNotEmpty  prepend="AND" property="extraCondition"> 
+        ( $extraCondition$ )
+     </isNotEmpty></isPropertyAvailable> 
+   </dynamic> 
+   <isPropertyAvailable property="extraOrderColumns" ><isNotEmpty property="extraOrderColumns"> 
+        ORDER BY $extraOrderColumns$
+   </isNotEmpty></isPropertyAvailable>
+   <isPropertyAvailable property="forUpdateFlag" >
+    <isEqual compareValue="1"  property="forUpdateFlag">
+       FOR UPDATE NOWAIT
+    </isEqual>
+   </isPropertyAvailable>    
+  </select>  
+  
+
+
+  <select id="pt_village_info_select" resultMap="pt_village_info_Map" > 
+   SELECT 
+   <isPropertyAvailable property="extraHint"><isNotEmpty property="extraHint"> 
+    /*+ $extraHint$ */
+   </isNotEmpty></isPropertyAvailable>
+   *
+   FROM pt_village_info A
+   <dynamic prepend="WHERE"> 
+      <isPropertyAvailable property="vid" ><isNotEmpty  prepend="AND" property="vid"> 
+        ( v_id = #vid:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vidLikeRange" ><isNotEmpty  prepend="AND" property="vidLikeRange"> 
+        ( v_id LIKE #vidLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="vname" ><isNotEmpty  prepend="AND" property="vname"> 
+        ( v_name = #vname:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vnameLikeRange" ><isNotEmpty  prepend="AND" property="vnameLikeRange"> 
+        ( v_name LIKE #vnameLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="vregionId" ><isNotEmpty  prepend="AND" property="vregionId"> 
+        ( v_region_id = #vregionId:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vregionIdLikeRange" ><isNotEmpty  prepend="AND" property="vregionIdLikeRange"> 
+        ( v_region_id LIKE #vregionIdLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="vlongitude" ><isNotEmpty  prepend="AND" property="vlongitude"> 
+        ( v_longitude = #vlongitude:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vlongitudeLikeRange" ><isNotEmpty  prepend="AND" property="vlongitudeLikeRange"> 
+        ( v_longitude LIKE #vlongitudeLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="vlatitude" ><isNotEmpty  prepend="AND" property="vlatitude"> 
+        ( v_latitude = #vlatitude:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vlatitudeLikeRange" ><isNotEmpty  prepend="AND" property="vlatitudeLikeRange"> 
+        ( v_latitude LIKE #vlatitudeLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="vmeasure" ><isNotEmpty  prepend="AND" property="vmeasure"> 
+        ( v_measure = #vmeasure:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vmeasureLikeRange" ><isNotEmpty  prepend="AND" property="vmeasureLikeRange"> 
+        ( v_measure LIKE #vmeasureLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="vcarNum" ><isNotEmpty  prepend="AND" property="vcarNum"> 
+        ( v_car_num = #vcarNum:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vcarNumLikeRange" ><isNotEmpty  prepend="AND" property="vcarNumLikeRange"> 
+        ( v_car_num LIKE #vcarNumLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="vhouseTotal" ><isNotEmpty  prepend="AND" property="vhouseTotal"> 
+        ( v_house_total = #vhouseTotal:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vhouseTotalLikeRange" ><isNotEmpty  prepend="AND" property="vhouseTotalLikeRange"> 
+        ( v_house_total LIKE #vhouseTotalLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="vimgUrl" ><isNotEmpty  prepend="AND" property="vimgUrl"> 
+        ( v_img_url = #vimgUrl:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vimgUrlLikeRange" ><isNotEmpty  prepend="AND" property="vimgUrlLikeRange"> 
+        ( v_img_url LIKE #vimgUrlLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="remark" ><isNotEmpty  prepend="AND" property="remark"> 
+        ( remark = #remark:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="remarkLikeRange" ><isNotEmpty  prepend="AND" property="remarkLikeRange"> 
+        ( remark LIKE #remarkLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+    <isPropertyAvailable property="rownum" ><isGreaterThan compareValue="0"  prepend="AND" property="rownum"> 
+       <![CDATA[  ( ROWNUM <= #rownum#)     ]]> 
+    </isGreaterThan></isPropertyAvailable> 
+    <isPropertyAvailable property="extraCondition" ><isNotEmpty  prepend="AND" property="extraCondition"> 
+        ( $extraCondition$ )
+     </isNotEmpty></isPropertyAvailable> 
+   </dynamic> 
+   <isPropertyAvailable property="extraOrderColumns" ><isNotEmpty property="extraOrderColumns"> 
+        ORDER BY $extraOrderColumns$
+   </isNotEmpty></isPropertyAvailable>
+   <isPropertyAvailable property="forUpdateFlag" >
+    <isEqual compareValue="1"  property="forUpdateFlag">
+       FOR UPDATE NOWAIT
+    </isEqual>
+   </isPropertyAvailable>    
+  </select>  
+
+  <select id="pt_village_info_selectByKey" resultMap="pt_village_info_Map" > 
+   SELECT * FROM pt_village_info 
+   WHERE v_id=#vid:VARCHAR#
+   <isPropertyAvailable property="forUpdateFlag" >
+    <isEqual compareValue="1"  property="forUpdateFlag">
+       FOR UPDATE NOWAIT
+    </isEqual>
+   </isPropertyAvailable>      
+  </select>  
+  
+   <update id="pt_village_info_update"> 
+    UPDATE pt_village_info 
+    <dynamic prepend="SET"> 
+      <isPropertyAvailable property="vname" >
+        <isNotNull prepend="," property="vname" >
+         v_name = #vname:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="vregionId" >
+        <isNotNull prepend="," property="vregionId" >
+         v_region_id = #vregionId:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="vlongitude" >
+        <isNotNull prepend="," property="vlongitude" >
+         v_longitude = #vlongitude:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="vlatitude" >
+        <isNotNull prepend="," property="vlatitude" >
+         v_latitude = #vlatitude:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="vmeasure" >
+        <isNotNull prepend="," property="vmeasure" >
+         v_measure = #vmeasure:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="vcarNum" >
+        <isNotNull prepend="," property="vcarNum" >
+         v_car_num = #vcarNum:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="vhouseTotal" >
+        <isNotNull prepend="," property="vhouseTotal" >
+         v_house_total = #vhouseTotal:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="vimgUrl" >
+        <isNotNull prepend="," property="vimgUrl" >
+         v_img_url = #vimgUrl:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="remark" >
+        <isNotNull prepend="," property="remark" >
+         remark = #remark:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+    </dynamic>    
+    WHERE v_id=#vid:VARCHAR#
+   </update>  
+ 
+   <delete id="pt_village_info_delete"> 
+    delete from pt_village_info 
+    WHERE v_id=#vid:VARCHAR#
+   </delete>  
+
+   <delete id="pt_village_info_deleteBy"> 
+    delete from pt_village_info WHERE
+   <dynamic prepend=" ">    
+      <isPropertyAvailable property="vid" ><isNotEmpty  prepend="AND" property="vid"> 
+        ( v_id = #vid:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vidLikeRange" ><isNotEmpty  prepend="AND" property="vidLikeRange"> 
+        ( v_id LIKE #vidLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="vname" ><isNotEmpty  prepend="AND" property="vname"> 
+        ( v_name = #vname:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vnameLikeRange" ><isNotEmpty  prepend="AND" property="vnameLikeRange"> 
+        ( v_name LIKE #vnameLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="vregionId" ><isNotEmpty  prepend="AND" property="vregionId"> 
+        ( v_region_id = #vregionId:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vregionIdLikeRange" ><isNotEmpty  prepend="AND" property="vregionIdLikeRange"> 
+        ( v_region_id LIKE #vregionIdLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="vlongitude" ><isNotEmpty  prepend="AND" property="vlongitude"> 
+        ( v_longitude = #vlongitude:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vlongitudeLikeRange" ><isNotEmpty  prepend="AND" property="vlongitudeLikeRange"> 
+        ( v_longitude LIKE #vlongitudeLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="vlatitude" ><isNotEmpty  prepend="AND" property="vlatitude"> 
+        ( v_latitude = #vlatitude:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vlatitudeLikeRange" ><isNotEmpty  prepend="AND" property="vlatitudeLikeRange"> 
+        ( v_latitude LIKE #vlatitudeLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="vmeasure" ><isNotEmpty  prepend="AND" property="vmeasure"> 
+        ( v_measure = #vmeasure:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vmeasureLikeRange" ><isNotEmpty  prepend="AND" property="vmeasureLikeRange"> 
+        ( v_measure LIKE #vmeasureLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="vcarNum" ><isNotEmpty  prepend="AND" property="vcarNum"> 
+        ( v_car_num = #vcarNum:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vcarNumLikeRange" ><isNotEmpty  prepend="AND" property="vcarNumLikeRange"> 
+        ( v_car_num LIKE #vcarNumLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="vhouseTotal" ><isNotEmpty  prepend="AND" property="vhouseTotal"> 
+        ( v_house_total = #vhouseTotal:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vhouseTotalLikeRange" ><isNotEmpty  prepend="AND" property="vhouseTotalLikeRange"> 
+        ( v_house_total LIKE #vhouseTotalLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="vimgUrl" ><isNotEmpty  prepend="AND" property="vimgUrl"> 
+        ( v_img_url = #vimgUrl:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="vimgUrlLikeRange" ><isNotEmpty  prepend="AND" property="vimgUrlLikeRange"> 
+        ( v_img_url LIKE #vimgUrlLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="remark" ><isNotEmpty  prepend="AND" property="remark"> 
+        ( remark = #remark:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="remarkLikeRange" ><isNotEmpty  prepend="AND" property="remarkLikeRange"> 
+        ( remark LIKE #remarkLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+    <isPropertyAvailable property="rownum" ><isGreaterThan compareValue="0"  prepend="AND" property="rownum"> 
+       <![CDATA[  ( ROWNUM <= #rownum#)     ]]> 
+    </isGreaterThan></isPropertyAvailable> 
+    <isPropertyAvailable property="extraCondition" ><isNotEmpty  prepend="AND" property="extraCondition"> 
+        ( $extraCondition$ )
+     </isNotEmpty></isPropertyAvailable> 
+   </dynamic>     
+   </delete>  
+
+   <insert id="pt_village_info_insert">
+    INSERT INTO pt_village_info
+    (
+      v_id ,
+      v_name ,
+      v_region_id ,
+      v_longitude ,
+      v_latitude ,
+      v_measure ,
+      v_car_num ,
+      v_house_total ,
+      v_img_url ,
+      remark
+    ) 
+    VALUES
+    (
+      #vid:VARCHAR# ,   
+      #vname:VARCHAR# ,   
+      #vregionId:VARCHAR# ,   
+      #vlongitude:VARCHAR# ,   
+      #vlatitude:VARCHAR# ,   
+      #vmeasure:VARCHAR# ,   
+      #vcarNum:VARCHAR# ,   
+      #vhouseTotal:VARCHAR# ,   
+      #vimgUrl:VARCHAR# ,   
+      #remark:VARCHAR#    
+    ) 
+   </insert>
+
+</sqlMap>	
+
