@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="pub">
+
+  <resultMap id="pt_order_progre_Map" class="org.hnslicom.mp.weixin.pojo.pub.model.tp.PtOrderProgreBean" >
+	  <result property="orderId" column="ORDER_ID" nullValue="" />
+	  <result property="orderSeriNo" column="ORDER_SERI_NO" nullValue="" />
+	  <result property="actionId" column="ACTION_ID" nullValue="" />
+	  <result property="progreState" column="PROGRE_STATE" nullValue="" />
+	  <result property="progreResult" column="PROGRE_RESULT" nullValue="" />
+	  <result property="createTime" column="CREATE_TIME" />
+	  <result property="finishTime" column="FINISH_TIME" />
+	  <result property="staId" column="STA_ID" nullValue="" />
+	  <result property="staName" column="STA_NAME" nullValue="" />
+	  <result property="progreDes" column="PROGRE_DES" nullValue="" />
+  </resultMap>
+  	
+  <resultMap id="pt_order_progre_MapWithTranslation" class="org.hnslicom.mp.weixin.pojo.pub.model.tp.PtOrderProgreBean" >
+  	<result property="orderId" column="order_id" nullValue="" /> 
+  	<result property="orderSeriNo" column="order_seri_no" nullValue="" /> 
+  	<result property="actionId" column="action_id" nullValue="" /> 
+  	<result property="progreState" column="progre_state" nullValue="" /> 
+  	<result property="progreResult" column="progre_result" nullValue="" /> 
+  	<result property="createTime" column="create_time"  /> 
+  	<result property="finishTime" column="finish_time"  /> 
+  	<result property="staId" column="sta_id" nullValue="" /> 
+  	<result property="staName" column="sta_name" nullValue="" /> 
+  	<result property="progreDes" column="progre_des" nullValue="" /> 
+  </resultMap>
+
+  <select id="pt_order_progre_selectWithTranslation" resultMap="pt_order_progre_MapWithTranslation" > 
+   SELECT 
+   <isPropertyAvailable property="extraHint"><isNotEmpty property="extraHint"> 
+    /*+ $extraHint$ */
+   </isNotEmpty></isPropertyAvailable>
+      order_id ,
+      order_seri_no ,
+      action_id ,
+      progre_state ,
+      progre_result ,
+      create_time ,
+      finish_time ,
+      sta_id ,
+      sta_name ,
+      progre_des
+   FROM pt_order_progre A
+   <dynamic prepend="WHERE">    
+      <isPropertyAvailable property="orderId" ><isNotEmpty  prepend="AND" property="orderId"> 
+        ( order_id = #orderId:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="orderIdLikeRange" ><isNotEmpty  prepend="AND" property="orderIdLikeRange"> 
+        ( order_id LIKE #orderIdLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="orderSeriNo" ><isNotEmpty  prepend="AND" property="orderSeriNo"> 
+        ( order_seri_no = #orderSeriNo:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="orderSeriNoLikeRange" ><isNotEmpty  prepend="AND" property="orderSeriNoLikeRange"> 
+        ( order_seri_no LIKE #orderSeriNoLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="actionId" ><isNotEmpty  prepend="AND" property="actionId"> 
+        ( action_id = #actionId:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="actionIdLikeRange" ><isNotEmpty  prepend="AND" property="actionIdLikeRange"> 
+        ( action_id LIKE #actionIdLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="progreState" ><isNotEmpty  prepend="AND" property="progreState"> 
+        ( progre_state = #progreState:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="progreStateLikeRange" ><isNotEmpty  prepend="AND" property="progreStateLikeRange"> 
+        ( progre_state LIKE #progreStateLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="progreResult" ><isNotEmpty  prepend="AND" property="progreResult"> 
+        ( progre_result = #progreResult:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="progreResultLikeRange" ><isNotEmpty  prepend="AND" property="progreResultLikeRange"> 
+        ( progre_result LIKE #progreResultLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+     <isPropertyAvailable property="createTime" ><isNotNull prepend="AND" property="createTime">
+       <![CDATA[ 
+        (create_time>=trunc(cast(#createTime:TIMESTAMP# as date),'DD') AND create_time<trunc(cast(#createTime:TIMESTAMP# as date)+1,'DD'))
+       ]]> 
+     </isNotNull></isPropertyAvailable>   
+     <isPropertyAvailable property="createTimeRange1" ><isNotNull prepend="AND" property="createTimeRange1">
+       <![CDATA[ (create_time>=#createTimeRange1:TIMESTAMP#) ]]> 
+     </isNotNull></isPropertyAvailable>
+     <isPropertyAvailable property="createTimeRange2" ><isNotNull prepend="AND" property="createTimeRange2">
+       <![CDATA[ (create_time<=#createTimeRange2:TIMESTAMP#) ]]> 
+     </isNotNull></isPropertyAvailable>
+     <isPropertyAvailable property="finishTime" ><isNotNull prepend="AND" property="finishTime">
+       <![CDATA[ 
+        (finish_time>=trunc(cast(#finishTime:TIMESTAMP# as date),'DD') AND finish_time<trunc(cast(#finishTime:TIMESTAMP# as date)+1,'DD'))
+       ]]> 
+     </isNotNull></isPropertyAvailable>   
+     <isPropertyAvailable property="finishTimeRange1" ><isNotNull prepend="AND" property="finishTimeRange1">
+       <![CDATA[ (finish_time>=#finishTimeRange1:TIMESTAMP#) ]]> 
+     </isNotNull></isPropertyAvailable>
+     <isPropertyAvailable property="finishTimeRange2" ><isNotNull prepend="AND" property="finishTimeRange2">
+       <![CDATA[ (finish_time<=#finishTimeRange2:TIMESTAMP#) ]]> 
+     </isNotNull></isPropertyAvailable>
+      <isPropertyAvailable property="staId" ><isNotEmpty  prepend="AND" property="staId"> 
+        ( sta_id = #staId:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="staIdLikeRange" ><isNotEmpty  prepend="AND" property="staIdLikeRange"> 
+        ( sta_id LIKE #staIdLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="staName" ><isNotEmpty  prepend="AND" property="staName"> 
+        ( sta_name = #staName:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="staNameLikeRange" ><isNotEmpty  prepend="AND" property="staNameLikeRange"> 
+        ( sta_name LIKE #staNameLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="progreDes" ><isNotEmpty  prepend="AND" property="progreDes"> 
+        ( progre_des = #progreDes:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="progreDesLikeRange" ><isNotEmpty  prepend="AND" property="progreDesLikeRange"> 
+        ( progre_des LIKE #progreDesLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+    <isPropertyAvailable property="rownum" ><isGreaterThan compareValue="0"  prepend="AND" property="rownum"> 
+       <![CDATA[  ( ROWNUM <= #rownum#)     ]]> 
+    </isGreaterThan></isPropertyAvailable> 
+    <isPropertyAvailable property="extraCondition" ><isNotEmpty  prepend="AND" property="extraCondition"> 
+        ( $extraCondition$ )
+     </isNotEmpty></isPropertyAvailable> 
+   </dynamic> 
+   <isPropertyAvailable property="extraOrderColumns" ><isNotEmpty property="extraOrderColumns"> 
+        ORDER BY $extraOrderColumns$
+   </isNotEmpty></isPropertyAvailable>
+   <isPropertyAvailable property="forUpdateFlag" >
+    <isEqual compareValue="1"  property="forUpdateFlag">
+       FOR UPDATE NOWAIT
+    </isEqual>
+   </isPropertyAvailable>    
+  </select>  
+  
+
+
+  <select id="pt_order_progre_select" resultMap="pt_order_progre_Map" > 
+   SELECT 
+   <isPropertyAvailable property="extraHint"><isNotEmpty property="extraHint"> 
+    /*+ $extraHint$ */
+   </isNotEmpty></isPropertyAvailable>
+   *
+   FROM pt_order_progre A
+   <dynamic prepend="WHERE"> 
+      <isPropertyAvailable property="orderId" ><isNotEmpty  prepend="AND" property="orderId"> 
+        ( order_id = #orderId:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="orderIdLikeRange" ><isNotEmpty  prepend="AND" property="orderIdLikeRange"> 
+        ( order_id LIKE #orderIdLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="orderSeriNo" ><isNotEmpty  prepend="AND" property="orderSeriNo"> 
+        ( order_seri_no = #orderSeriNo:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="orderSeriNoLikeRange" ><isNotEmpty  prepend="AND" property="orderSeriNoLikeRange"> 
+        ( order_seri_no LIKE #orderSeriNoLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="actionId" ><isNotEmpty  prepend="AND" property="actionId"> 
+        ( action_id = #actionId:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="actionIdLikeRange" ><isNotEmpty  prepend="AND" property="actionIdLikeRange"> 
+        ( action_id LIKE #actionIdLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="progreState" ><isNotEmpty  prepend="AND" property="progreState"> 
+        ( progre_state = #progreState:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="progreStateLikeRange" ><isNotEmpty  prepend="AND" property="progreStateLikeRange"> 
+        ( progre_state LIKE #progreStateLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="progreResult" ><isNotEmpty  prepend="AND" property="progreResult"> 
+        ( progre_result = #progreResult:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="progreResultLikeRange" ><isNotEmpty  prepend="AND" property="progreResultLikeRange"> 
+        ( progre_result LIKE #progreResultLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+     <isPropertyAvailable property="createTime" ><isNotNull prepend="AND" property="createTime">
+       <![CDATA[ 
+        (create_time>=trunc(cast(#createTime:TIMESTAMP# as date),'DD') AND create_time<trunc(cast(#createTime:TIMESTAMP# as date)+1,'DD'))
+       ]]> 
+     </isNotNull></isPropertyAvailable>   
+     <isPropertyAvailable property="createTimeRange1" ><isNotNull prepend="AND" property="createTimeRange1">
+       <![CDATA[ (create_time>=#createTimeRange1:TIMESTAMP#) ]]> 
+     </isNotNull></isPropertyAvailable>
+     <isPropertyAvailable property="createTimeRange2" ><isNotNull prepend="AND" property="createTimeRange2">
+       <![CDATA[ (create_time<=#createTimeRange2:TIMESTAMP#) ]]> 
+     </isNotNull></isPropertyAvailable>
+     <isPropertyAvailable property="finishTime" ><isNotNull prepend="AND" property="finishTime">
+       <![CDATA[ 
+        (finish_time>=trunc(cast(#finishTime:TIMESTAMP# as date),'DD') AND finish_time<trunc(cast(#finishTime:TIMESTAMP# as date)+1,'DD'))
+       ]]> 
+     </isNotNull></isPropertyAvailable>   
+     <isPropertyAvailable property="finishTimeRange1" ><isNotNull prepend="AND" property="finishTimeRange1">
+       <![CDATA[ (finish_time>=#finishTimeRange1:TIMESTAMP#) ]]> 
+     </isNotNull></isPropertyAvailable>
+     <isPropertyAvailable property="finishTimeRange2" ><isNotNull prepend="AND" property="finishTimeRange2">
+       <![CDATA[ (finish_time<=#finishTimeRange2:TIMESTAMP#) ]]> 
+     </isNotNull></isPropertyAvailable>
+      <isPropertyAvailable property="staId" ><isNotEmpty  prepend="AND" property="staId"> 
+        ( sta_id = #staId:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="staIdLikeRange" ><isNotEmpty  prepend="AND" property="staIdLikeRange"> 
+        ( sta_id LIKE #staIdLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="staName" ><isNotEmpty  prepend="AND" property="staName"> 
+        ( sta_name = #staName:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="staNameLikeRange" ><isNotEmpty  prepend="AND" property="staNameLikeRange"> 
+        ( sta_name LIKE #staNameLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="progreDes" ><isNotEmpty  prepend="AND" property="progreDes"> 
+        ( progre_des = #progreDes:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="progreDesLikeRange" ><isNotEmpty  prepend="AND" property="progreDesLikeRange"> 
+        ( progre_des LIKE #progreDesLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+    <isPropertyAvailable property="rownum" ><isGreaterThan compareValue="0"  prepend="AND" property="rownum"> 
+       <![CDATA[  ( ROWNUM <= #rownum#)     ]]> 
+    </isGreaterThan></isPropertyAvailable> 
+    <isPropertyAvailable property="extraCondition" ><isNotEmpty  prepend="AND" property="extraCondition"> 
+        ( $extraCondition$ )
+     </isNotEmpty></isPropertyAvailable> 
+   </dynamic> 
+   <isPropertyAvailable property="extraOrderColumns" ><isNotEmpty property="extraOrderColumns"> 
+        ORDER BY $extraOrderColumns$
+   </isNotEmpty></isPropertyAvailable>
+   <isPropertyAvailable property="forUpdateFlag" >
+    <isEqual compareValue="1"  property="forUpdateFlag">
+       FOR UPDATE NOWAIT
+    </isEqual>
+   </isPropertyAvailable>    
+  </select>  
+
+  <select id="pt_order_progre_selectByKey" resultMap="pt_order_progre_Map" > 
+   SELECT * FROM pt_order_progre 
+   WHERE order_id=#orderId:VARCHAR# AND order_seri_no=#orderSeriNo:VARCHAR#
+   <isPropertyAvailable property="forUpdateFlag" >
+    <isEqual compareValue="1"  property="forUpdateFlag">
+       FOR UPDATE NOWAIT
+    </isEqual>
+   </isPropertyAvailable>      
+  </select>  
+  
+   <update id="pt_order_progre_update"> 
+    UPDATE pt_order_progre 
+    <dynamic prepend="SET"> 
+      <isPropertyAvailable property="actionId" >
+        <isNotNull prepend="," property="actionId" >
+         action_id = #actionId:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="progreState" >
+        <isNotNull prepend="," property="progreState" >
+         progre_state = #progreState:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="progreResult" >
+        <isNotNull prepend="," property="progreResult" >
+         progre_result = #progreResult:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="createTime" >
+        <isNotNull prepend="," property="createTime" >
+         create_time = #createTime:TIMESTAMP#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="finishTime" >
+        <isNotNull prepend="," property="finishTime" >
+         finish_time = #finishTime:TIMESTAMP#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="staId" >
+        <isNotNull prepend="," property="staId" >
+         sta_id = #staId:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="staName" >
+        <isNotNull prepend="," property="staName" >
+         sta_name = #staName:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="progreDes" >
+        <isNotNull prepend="," property="progreDes" >
+         progre_des = #progreDes:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+    </dynamic>    
+    WHERE order_id=#orderId:VARCHAR# AND order_seri_no=#orderSeriNo:VARCHAR#
+   </update>  
+ 
+   <delete id="pt_order_progre_delete"> 
+    delete from pt_order_progre 
+    WHERE order_id=#orderId:VARCHAR# AND order_seri_no=#orderSeriNo:VARCHAR#
+   </delete>  
+
+   <delete id="pt_order_progre_deleteBy"> 
+    delete from pt_order_progre WHERE
+   <dynamic prepend=" ">    
+      <isPropertyAvailable property="orderId" ><isNotEmpty  prepend="AND" property="orderId"> 
+        ( order_id = #orderId:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="orderIdLikeRange" ><isNotEmpty  prepend="AND" property="orderIdLikeRange"> 
+        ( order_id LIKE #orderIdLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="orderSeriNo" ><isNotEmpty  prepend="AND" property="orderSeriNo"> 
+        ( order_seri_no = #orderSeriNo:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="orderSeriNoLikeRange" ><isNotEmpty  prepend="AND" property="orderSeriNoLikeRange"> 
+        ( order_seri_no LIKE #orderSeriNoLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="actionId" ><isNotEmpty  prepend="AND" property="actionId"> 
+        ( action_id = #actionId:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="actionIdLikeRange" ><isNotEmpty  prepend="AND" property="actionIdLikeRange"> 
+        ( action_id LIKE #actionIdLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="progreState" ><isNotEmpty  prepend="AND" property="progreState"> 
+        ( progre_state = #progreState:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="progreStateLikeRange" ><isNotEmpty  prepend="AND" property="progreStateLikeRange"> 
+        ( progre_state LIKE #progreStateLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="progreResult" ><isNotEmpty  prepend="AND" property="progreResult"> 
+        ( progre_result = #progreResult:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="progreResultLikeRange" ><isNotEmpty  prepend="AND" property="progreResultLikeRange"> 
+        ( progre_result LIKE #progreResultLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+     <isPropertyAvailable property="createTime" ><isNotNull prepend="AND" property="createTime">
+       <![CDATA[ 
+        (create_time>=trunc(cast(#createTime:TIMESTAMP# as date),'DD') AND create_time<trunc(cast(#createTime:TIMESTAMP# as date)+1,'DD'))
+       ]]> 
+     </isNotNull></isPropertyAvailable>   
+     <isPropertyAvailable property="createTimeRange1" ><isNotNull prepend="AND" property="createTimeRange1">
+       <![CDATA[ (create_time>=#createTimeRange1:TIMESTAMP#) ]]> 
+     </isNotNull></isPropertyAvailable>
+     <isPropertyAvailable property="createTimeRange2" ><isNotNull prepend="AND" property="createTimeRange2">
+       <![CDATA[ (create_time<=#createTimeRange2:TIMESTAMP#) ]]> 
+     </isNotNull></isPropertyAvailable>
+     <isPropertyAvailable property="finishTime" ><isNotNull prepend="AND" property="finishTime">
+       <![CDATA[ 
+        (finish_time>=trunc(cast(#finishTime:TIMESTAMP# as date),'DD') AND finish_time<trunc(cast(#finishTime:TIMESTAMP# as date)+1,'DD'))
+       ]]> 
+     </isNotNull></isPropertyAvailable>   
+     <isPropertyAvailable property="finishTimeRange1" ><isNotNull prepend="AND" property="finishTimeRange1">
+       <![CDATA[ (finish_time>=#finishTimeRange1:TIMESTAMP#) ]]> 
+     </isNotNull></isPropertyAvailable>
+     <isPropertyAvailable property="finishTimeRange2" ><isNotNull prepend="AND" property="finishTimeRange2">
+       <![CDATA[ (finish_time<=#finishTimeRange2:TIMESTAMP#) ]]> 
+     </isNotNull></isPropertyAvailable>
+      <isPropertyAvailable property="staId" ><isNotEmpty  prepend="AND" property="staId"> 
+        ( sta_id = #staId:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="staIdLikeRange" ><isNotEmpty  prepend="AND" property="staIdLikeRange"> 
+        ( sta_id LIKE #staIdLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="staName" ><isNotEmpty  prepend="AND" property="staName"> 
+        ( sta_name = #staName:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="staNameLikeRange" ><isNotEmpty  prepend="AND" property="staNameLikeRange"> 
+        ( sta_name LIKE #staNameLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="progreDes" ><isNotEmpty  prepend="AND" property="progreDes"> 
+        ( progre_des = #progreDes:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="progreDesLikeRange" ><isNotEmpty  prepend="AND" property="progreDesLikeRange"> 
+        ( progre_des LIKE #progreDesLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+    <isPropertyAvailable property="rownum" ><isGreaterThan compareValue="0"  prepend="AND" property="rownum"> 
+       <![CDATA[  ( ROWNUM <= #rownum#)     ]]> 
+    </isGreaterThan></isPropertyAvailable> 
+    <isPropertyAvailable property="extraCondition" ><isNotEmpty  prepend="AND" property="extraCondition"> 
+        ( $extraCondition$ )
+     </isNotEmpty></isPropertyAvailable> 
+   </dynamic>     
+   </delete>  
+
+   <insert id="pt_order_progre_insert">
+    INSERT INTO pt_order_progre
+    (
+      order_id ,
+      order_seri_no ,
+      action_id ,
+      progre_state ,
+      progre_result ,
+      create_time ,
+      finish_time ,
+      sta_id ,
+      sta_name ,
+      progre_des
+    ) 
+    VALUES
+    (
+      #orderId:VARCHAR# ,   
+      #orderSeriNo:VARCHAR# ,   
+      #actionId:VARCHAR# ,   
+      #progreState:VARCHAR# ,   
+      #progreResult:VARCHAR# ,   
+      #createTime:TIMESTAMP# ,   
+      #finishTime:TIMESTAMP# ,   
+      #staId:VARCHAR# ,   
+      #staName:VARCHAR# ,   
+      #progreDes:VARCHAR#    
+    ) 
+   </insert>
+
+</sqlMap>	
+

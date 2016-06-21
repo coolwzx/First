@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="pub">
+
+  <resultMap id="pt_com_staff_Map" class="org.hnslicom.mp.weixin.pojo.pub.model.tp.PtComStaffBean" >
+	  <result property="staId" column="STA_ID" nullValue="" />
+	  <result property="staName" column="STA_NAME" nullValue="" />
+	  <result property="staSex" column="STA_SEX" nullValue="" />
+	  <result property="ownerOpenid" column="OWNER_OPENID" nullValue="" />
+	  <result property="isWorking" column="IS_WORKING" nullValue="" />
+	  <result property="staPicUrl" column="STA_PIC_URL" nullValue="" />
+	  <result property="ownerImgUrl" column="OWNER_IMG_URL" nullValue="" />
+	  <result property="staBirth" column="STA_BIRTH" nullValue="" />
+	  <result property="staPhone" column="STA_PHONE" nullValue="" />
+	  <result property="staType" column="STA_TYPE" nullValue="" />
+	  <result property="comId" column="COM_ID" nullValue="" />
+	  <result property="staDesc" column="STA_DESC" nullValue="" />
+	  <result property="isEnable" column="IS_ENABLE" />
+  </resultMap>
+  	
+  <resultMap id="pt_com_staff_MapWithTranslation" class="org.hnslicom.mp.weixin.pojo.pub.model.tp.PtComStaffBean" >
+  	<result property="staId" column="sta_id" nullValue="" /> 
+  	<result property="staName" column="sta_name" nullValue="" /> 
+  	<result property="staSex" column="sta_sex" nullValue="" /> 
+  	<result property="ownerOpenid" column="owner_openid" nullValue="" /> 
+  	<result property="isWorking" column="is_working" nullValue="" /> 
+  	<result property="staPicUrl" column="sta_pic_url" nullValue="" /> 
+  	<result property="ownerImgUrl" column="owner_img_url" nullValue="" /> 
+  	<result property="staBirth" column="sta_birth" nullValue="" /> 
+  	<result property="staPhone" column="sta_phone" nullValue="" /> 
+  	<result property="staType" column="sta_type" nullValue="" /> 
+  	<result property="comId" column="com_id" nullValue="" /> 
+  	<result property="staDesc" column="sta_desc" nullValue="" /> 
+  	<result property="isEnable" column="is_enable" /> 
+  </resultMap>
+
+  <select id="pt_com_staff_selectWithTranslation" resultMap="pt_com_staff_MapWithTranslation" > 
+   SELECT 
+   <isPropertyAvailable property="extraHint"><isNotEmpty property="extraHint"> 
+    /*+ $extraHint$ */
+   </isNotEmpty></isPropertyAvailable>
+      sta_id ,
+      sta_name ,
+      sta_sex ,
+      owner_openid ,
+      is_working ,
+      sta_pic_url ,
+      owner_img_url ,
+      sta_birth ,
+      sta_phone ,
+      sta_type ,
+      com_id ,
+      sta_desc ,
+      is_enable
+   FROM pt_com_staff A
+   <dynamic prepend="WHERE">    
+      <isPropertyAvailable property="staId" ><isNotEmpty  prepend="AND" property="staId"> 
+        ( sta_id = #staId:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="staIdLikeRange" ><isNotEmpty  prepend="AND" property="staIdLikeRange"> 
+        ( sta_id LIKE #staIdLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="staName" ><isNotEmpty  prepend="AND" property="staName"> 
+        ( sta_name = #staName:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="staNameLikeRange" ><isNotEmpty  prepend="AND" property="staNameLikeRange"> 
+        ( sta_name LIKE #staNameLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="staSex" ><isNotEmpty  prepend="AND" property="staSex"> 
+        ( sta_sex = #staSex:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="staSexLikeRange" ><isNotEmpty  prepend="AND" property="staSexLikeRange"> 
+        ( sta_sex LIKE #staSexLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerOpenid" ><isNotEmpty  prepend="AND" property="ownerOpenid"> 
+        ( owner_openid = #ownerOpenid:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerOpenidLikeRange" ><isNotEmpty  prepend="AND" property="ownerOpenidLikeRange"> 
+        ( owner_openid LIKE #ownerOpenidLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="isWorking" ><isNotEmpty  prepend="AND" property="isWorking"> 
+        ( is_working = #isWorking:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="isWorkingLikeRange" ><isNotEmpty  prepend="AND" property="isWorkingLikeRange"> 
+        ( is_working LIKE #isWorkingLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="staPicUrl" ><isNotEmpty  prepend="AND" property="staPicUrl"> 
+        ( sta_pic_url = #staPicUrl:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="staPicUrlLikeRange" ><isNotEmpty  prepend="AND" property="staPicUrlLikeRange"> 
+        ( sta_pic_url LIKE #staPicUrlLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerImgUrl" ><isNotEmpty  prepend="AND" property="ownerImgUrl"> 
+        ( owner_img_url = #ownerImgUrl:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerImgUrlLikeRange" ><isNotEmpty  prepend="AND" property="ownerImgUrlLikeRange"> 
+        ( owner_img_url LIKE #ownerImgUrlLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="staBirth" ><isNotEmpty  prepend="AND" property="staBirth"> 
+        ( sta_birth = #staBirth:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="staBirthLikeRange" ><isNotEmpty  prepend="AND" property="staBirthLikeRange"> 
+        ( sta_birth LIKE #staBirthLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="staPhone" ><isNotEmpty  prepend="AND" property="staPhone"> 
+        ( sta_phone = #staPhone:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="staPhoneLikeRange" ><isNotEmpty  prepend="AND" property="staPhoneLikeRange"> 
+        ( sta_phone LIKE #staPhoneLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="staType" ><isNotEmpty  prepend="AND" property="staType"> 
+        ( sta_type = #staType:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="staTypeLikeRange" ><isNotEmpty  prepend="AND" property="staTypeLikeRange"> 
+        ( sta_type LIKE #staTypeLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="comId" ><isNotEmpty  prepend="AND" property="comId"> 
+        ( com_id = #comId:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="comIdLikeRange" ><isNotEmpty  prepend="AND" property="comIdLikeRange"> 
+        ( com_id LIKE #comIdLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="staDesc" ><isNotEmpty  prepend="AND" property="staDesc"> 
+        ( sta_desc = #staDesc:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="staDescLikeRange" ><isNotEmpty  prepend="AND" property="staDescLikeRange"> 
+        ( sta_desc LIKE #staDescLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="isEnable" ><isNotNull prepend="AND" property="isEnable">
+       ( is_enable = #isEnable:NUMERIC#)
+      </isNotNull></isPropertyAvailable>
+    <isPropertyAvailable property="rownum" ><isGreaterThan compareValue="0"  prepend="AND" property="rownum"> 
+       <![CDATA[  ( ROWNUM <= #rownum#)     ]]> 
+    </isGreaterThan></isPropertyAvailable> 
+    <isPropertyAvailable property="extraCondition" ><isNotEmpty  prepend="AND" property="extraCondition"> 
+        ( $extraCondition$ )
+     </isNotEmpty></isPropertyAvailable> 
+   </dynamic> 
+   <isPropertyAvailable property="extraOrderColumns" ><isNotEmpty property="extraOrderColumns"> 
+        ORDER BY $extraOrderColumns$
+   </isNotEmpty></isPropertyAvailable>
+   <isPropertyAvailable property="forUpdateFlag" >
+    <isEqual compareValue="1"  property="forUpdateFlag">
+       FOR UPDATE NOWAIT
+    </isEqual>
+   </isPropertyAvailable>    
+  </select>  
+  
+
+
+  <select id="pt_com_staff_select" resultMap="pt_com_staff_Map" > 
+   SELECT 
+   <isPropertyAvailable property="extraHint"><isNotEmpty property="extraHint"> 
+    /*+ $extraHint$ */
+   </isNotEmpty></isPropertyAvailable>
+   *
+   FROM pt_com_staff A
+   <dynamic prepend="WHERE"> 
+      <isPropertyAvailable property="staId" ><isNotEmpty  prepend="AND" property="staId"> 
+        ( sta_id = #staId:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="staIdLikeRange" ><isNotEmpty  prepend="AND" property="staIdLikeRange"> 
+        ( sta_id LIKE #staIdLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="staName" ><isNotEmpty  prepend="AND" property="staName"> 
+        ( sta_name = #staName:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="staNameLikeRange" ><isNotEmpty  prepend="AND" property="staNameLikeRange"> 
+        ( sta_name LIKE #staNameLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="staSex" ><isNotEmpty  prepend="AND" property="staSex"> 
+        ( sta_sex = #staSex:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="staSexLikeRange" ><isNotEmpty  prepend="AND" property="staSexLikeRange"> 
+        ( sta_sex LIKE #staSexLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerOpenid" ><isNotEmpty  prepend="AND" property="ownerOpenid"> 
+        ( owner_openid = #ownerOpenid:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerOpenidLikeRange" ><isNotEmpty  prepend="AND" property="ownerOpenidLikeRange"> 
+        ( owner_openid LIKE #ownerOpenidLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="isWorking" ><isNotEmpty  prepend="AND" property="isWorking"> 
+        ( is_working = #isWorking:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="isWorkingLikeRange" ><isNotEmpty  prepend="AND" property="isWorkingLikeRange"> 
+        ( is_working LIKE #isWorkingLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="staPicUrl" ><isNotEmpty  prepend="AND" property="staPicUrl"> 
+        ( sta_pic_url = #staPicUrl:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="staPicUrlLikeRange" ><isNotEmpty  prepend="AND" property="staPicUrlLikeRange"> 
+        ( sta_pic_url LIKE #staPicUrlLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerImgUrl" ><isNotEmpty  prepend="AND" property="ownerImgUrl"> 
+        ( owner_img_url = #ownerImgUrl:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerImgUrlLikeRange" ><isNotEmpty  prepend="AND" property="ownerImgUrlLikeRange"> 
+        ( owner_img_url LIKE #ownerImgUrlLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="staBirth" ><isNotEmpty  prepend="AND" property="staBirth"> 
+        ( sta_birth = #staBirth:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="staBirthLikeRange" ><isNotEmpty  prepend="AND" property="staBirthLikeRange"> 
+        ( sta_birth LIKE #staBirthLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="staPhone" ><isNotEmpty  prepend="AND" property="staPhone"> 
+        ( sta_phone = #staPhone:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="staPhoneLikeRange" ><isNotEmpty  prepend="AND" property="staPhoneLikeRange"> 
+        ( sta_phone LIKE #staPhoneLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="staType" ><isNotEmpty  prepend="AND" property="staType"> 
+        ( sta_type = #staType:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="staTypeLikeRange" ><isNotEmpty  prepend="AND" property="staTypeLikeRange"> 
+        ( sta_type LIKE #staTypeLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="comId" ><isNotEmpty  prepend="AND" property="comId"> 
+        ( com_id = #comId:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="comIdLikeRange" ><isNotEmpty  prepend="AND" property="comIdLikeRange"> 
+        ( com_id LIKE #comIdLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="staDesc" ><isNotEmpty  prepend="AND" property="staDesc"> 
+        ( sta_desc = #staDesc:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="staDescLikeRange" ><isNotEmpty  prepend="AND" property="staDescLikeRange"> 
+        ( sta_desc LIKE #staDescLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="isEnable" ><isNotNull prepend="AND" property="isEnable">
+       ( is_enable = #isEnable:NUMERIC#)
+      </isNotNull></isPropertyAvailable>
+    <isPropertyAvailable property="rownum" ><isGreaterThan compareValue="0"  prepend="AND" property="rownum"> 
+       <![CDATA[  ( ROWNUM <= #rownum#)     ]]> 
+    </isGreaterThan></isPropertyAvailable> 
+    <isPropertyAvailable property="extraCondition" ><isNotEmpty  prepend="AND" property="extraCondition"> 
+        ( $extraCondition$ )
+     </isNotEmpty></isPropertyAvailable> 
+   </dynamic> 
+   <isPropertyAvailable property="extraOrderColumns" ><isNotEmpty property="extraOrderColumns"> 
+        ORDER BY $extraOrderColumns$
+   </isNotEmpty></isPropertyAvailable>
+   <isPropertyAvailable property="forUpdateFlag" >
+    <isEqual compareValue="1"  property="forUpdateFlag">
+       FOR UPDATE NOWAIT
+    </isEqual>
+   </isPropertyAvailable>    
+  </select>  
+
+  <select id="pt_com_staff_selectByKey" resultMap="pt_com_staff_Map" > 
+   SELECT * FROM pt_com_staff 
+   WHERE sta_id=#staId:VARCHAR#
+   <isPropertyAvailable property="forUpdateFlag" >
+    <isEqual compareValue="1"  property="forUpdateFlag">
+       FOR UPDATE NOWAIT
+    </isEqual>
+   </isPropertyAvailable>      
+  </select>  
+  
+   <update id="pt_com_staff_update"> 
+    UPDATE pt_com_staff 
+    <dynamic prepend="SET"> 
+      <isPropertyAvailable property="staName" >
+        <isNotNull prepend="," property="staName" >
+         sta_name = #staName:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="staSex" >
+        <isNotNull prepend="," property="staSex" >
+         sta_sex = #staSex:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="ownerOpenid" >
+        <isNotNull prepend="," property="ownerOpenid" >
+         owner_openid = #ownerOpenid:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="isWorking" >
+        <isNotNull prepend="," property="isWorking" >
+         is_working = #isWorking:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="staPicUrl" >
+        <isNotNull prepend="," property="staPicUrl" >
+         sta_pic_url = #staPicUrl:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="ownerImgUrl" >
+        <isNotNull prepend="," property="ownerImgUrl" >
+         owner_img_url = #ownerImgUrl:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="staBirth" >
+        <isNotNull prepend="," property="staBirth" >
+         sta_birth = #staBirth:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="staPhone" >
+        <isNotNull prepend="," property="staPhone" >
+         sta_phone = #staPhone:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="staType" >
+        <isNotNull prepend="," property="staType" >
+         sta_type = #staType:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="comId" >
+        <isNotNull prepend="," property="comId" >
+         com_id = #comId:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="staDesc" >
+        <isNotNull prepend="," property="staDesc" >
+         sta_desc = #staDesc:VARCHAR#
+        </isNotNull> 
+      </isPropertyAvailable>   
+      <isPropertyAvailable property="isEnable" >
+        <isNotNull prepend="," property="isEnable" >
+         is_enable = #isEnable:NUMERIC#
+        </isNotNull> 
+      </isPropertyAvailable>   
+    </dynamic>    
+    WHERE sta_id=#staId:VARCHAR#
+   </update>  
+ 
+   <delete id="pt_com_staff_delete"> 
+    delete from pt_com_staff 
+    WHERE sta_id=#staId:VARCHAR#
+   </delete>  
+
+   <delete id="pt_com_staff_deleteBy"> 
+    delete from pt_com_staff WHERE
+   <dynamic prepend=" ">    
+      <isPropertyAvailable property="staId" ><isNotEmpty  prepend="AND" property="staId"> 
+        ( sta_id = #staId:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="staIdLikeRange" ><isNotEmpty  prepend="AND" property="staIdLikeRange"> 
+        ( sta_id LIKE #staIdLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="staName" ><isNotEmpty  prepend="AND" property="staName"> 
+        ( sta_name = #staName:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="staNameLikeRange" ><isNotEmpty  prepend="AND" property="staNameLikeRange"> 
+        ( sta_name LIKE #staNameLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="staSex" ><isNotEmpty  prepend="AND" property="staSex"> 
+        ( sta_sex = #staSex:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="staSexLikeRange" ><isNotEmpty  prepend="AND" property="staSexLikeRange"> 
+        ( sta_sex LIKE #staSexLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerOpenid" ><isNotEmpty  prepend="AND" property="ownerOpenid"> 
+        ( owner_openid = #ownerOpenid:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerOpenidLikeRange" ><isNotEmpty  prepend="AND" property="ownerOpenidLikeRange"> 
+        ( owner_openid LIKE #ownerOpenidLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="isWorking" ><isNotEmpty  prepend="AND" property="isWorking"> 
+        ( is_working = #isWorking:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="isWorkingLikeRange" ><isNotEmpty  prepend="AND" property="isWorkingLikeRange"> 
+        ( is_working LIKE #isWorkingLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="staPicUrl" ><isNotEmpty  prepend="AND" property="staPicUrl"> 
+        ( sta_pic_url = #staPicUrl:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="staPicUrlLikeRange" ><isNotEmpty  prepend="AND" property="staPicUrlLikeRange"> 
+        ( sta_pic_url LIKE #staPicUrlLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="ownerImgUrl" ><isNotEmpty  prepend="AND" property="ownerImgUrl"> 
+        ( owner_img_url = #ownerImgUrl:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="ownerImgUrlLikeRange" ><isNotEmpty  prepend="AND" property="ownerImgUrlLikeRange"> 
+        ( owner_img_url LIKE #ownerImgUrlLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="staBirth" ><isNotEmpty  prepend="AND" property="staBirth"> 
+        ( sta_birth = #staBirth:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="staBirthLikeRange" ><isNotEmpty  prepend="AND" property="staBirthLikeRange"> 
+        ( sta_birth LIKE #staBirthLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="staPhone" ><isNotEmpty  prepend="AND" property="staPhone"> 
+        ( sta_phone = #staPhone:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="staPhoneLikeRange" ><isNotEmpty  prepend="AND" property="staPhoneLikeRange"> 
+        ( sta_phone LIKE #staPhoneLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="staType" ><isNotEmpty  prepend="AND" property="staType"> 
+        ( sta_type = #staType:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="staTypeLikeRange" ><isNotEmpty  prepend="AND" property="staTypeLikeRange"> 
+        ( sta_type LIKE #staTypeLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="comId" ><isNotEmpty  prepend="AND" property="comId"> 
+        ( com_id = #comId:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="comIdLikeRange" ><isNotEmpty  prepend="AND" property="comIdLikeRange"> 
+        ( com_id LIKE #comIdLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="staDesc" ><isNotEmpty  prepend="AND" property="staDesc"> 
+        ( sta_desc = #staDesc:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>
+     <isPropertyAvailable property="staDescLikeRange" ><isNotEmpty  prepend="AND" property="staDescLikeRange"> 
+        ( sta_desc LIKE #staDescLikeRange:VARCHAR#)
+     </isNotEmpty></isPropertyAvailable>  
+      <isPropertyAvailable property="isEnable" ><isNotNull prepend="AND" property="isEnable">
+       ( is_enable = #isEnable:NUMERIC#)
+      </isNotNull></isPropertyAvailable>
+    <isPropertyAvailable property="rownum" ><isGreaterThan compareValue="0"  prepend="AND" property="rownum"> 
+       <![CDATA[  ( ROWNUM <= #rownum#)     ]]> 
+    </isGreaterThan></isPropertyAvailable> 
+    <isPropertyAvailable property="extraCondition" ><isNotEmpty  prepend="AND" property="extraCondition"> 
+        ( $extraCondition$ )
+     </isNotEmpty></isPropertyAvailable> 
+   </dynamic>     
+   </delete>  
+
+   <insert id="pt_com_staff_insert">
+    INSERT INTO pt_com_staff
+    (
+      sta_id ,
+      sta_name ,
+      sta_sex ,
+      owner_openid ,
+      is_working ,
+      sta_pic_url ,
+      owner_img_url ,
+      sta_birth ,
+      sta_phone ,
+      sta_type ,
+      com_id ,
+      sta_desc ,
+      is_enable
+    ) 
+    VALUES
+    (
+      #staId:VARCHAR# ,   
+      #staName:VARCHAR# ,   
+      #staSex:VARCHAR# ,   
+      #ownerOpenid:VARCHAR# ,   
+      #isWorking:VARCHAR# ,   
+      #staPicUrl:VARCHAR# ,   
+      #ownerImgUrl:VARCHAR# ,   
+      #staBirth:VARCHAR# ,   
+      #staPhone:VARCHAR# ,   
+      #staType:VARCHAR# ,   
+      #comId:VARCHAR# ,   
+      #staDesc:VARCHAR# ,   
+      #isEnable:NUMERIC#    
+    ) 
+   </insert>
+
+</sqlMap>	
+
